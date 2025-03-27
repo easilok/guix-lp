@@ -1,0 +1,11 @@
+;; This file lets us present this repo as a Guix channel with
+;; the module path under `.guix/modules`.
+
+(channel
+  (version 0)
+  (directory ".guix/modules")
+  (dependencies
+   (channel
+    (name guix-lp)
+    (url "https://codeberg.org/easilok/guix-lp.git"))))
+
