@@ -1,5 +1,4 @@
-(define-module
-  (lp tree-sitter)
+(define-module (lp packages tree-sitter)
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module (gnu packages tree-sitter))

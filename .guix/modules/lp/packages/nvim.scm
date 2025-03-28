@@ -1,10 +1,8 @@
-(define-module
-  (lp nvim)
-  #:use-module (lp tree-sitter)
+(define-module (lp packages nvim)
+  #:use-module (lp packages tree-sitter)
   #:use-module (guix packages)
   #:use-module (guix git-download)
-  #:use-module (gnu packages vim)
-  #:use-module (lp textutils))
+  #:use-module (gnu packages vim))
 
 (define-public nvim-0.10.4
   (package
