@@ -3,9 +3,5 @@
 
 (channel
   (version 0)
-  (directory ".guix/modules")
-  (dependencies
-   (channel
-    (name guix-lp)
-    (url "https://codeberg.org/easilok/guix-lp.git"))))
+  (directory ".guix/modules"))
 
