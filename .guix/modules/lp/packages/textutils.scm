@@ -23,29 +23,26 @@
         (base32 "1n1k67x39sk8xnza4w1xkbgbvgb1g7w2a7j2qrqzqaw1lyilqsy2"))))
     (native-inputs
       (let ((UNICODE_VERSION "16.0.0"))
-        `(("DerivedCoreProperties.txt"
-           ,(origin
-              (method url-fetch)
-              (uri (string-append "https://www.unicode.org/Public/"
-                                  UNICODE_VERSION "/ucd/DerivedCoreProperties.txt"))
-              (sha256
-                (base32 "1gfsq4vdmzi803i2s8ih7mm4fgs907kvkg88kvv9fi4my9hm3lrr"))))
-          ("NormalizationTest.txt"
+        `(,(origin
+             (method url-fetch)
+             (uri (string-append "https://www.unicode.org/Public/"
+                                 UNICODE_VERSION "/ucd/DerivedCoreProperties.txt"))
+             (sha256
+               (base32 "1gfsq4vdmzi803i2s8ih7mm4fgs907kvkg88kvv9fi4my9hm3lrr")))
           ,(origin
              (method url-fetch)
              (uri (string-append "https://www.unicode.org/Public/"
                                  UNICODE_VERSION "/ucd/NormalizationTest.txt"))
              (sha256
-              (base32 "1cffwlxgn6sawxb627xqaw3shnnfxq0v7cbgsld5w1z7aca9f4fq"))))
-         ("GraphemeBreakTest.txt"
+              (base32 "1cffwlxgn6sawxb627xqaw3shnnfxq0v7cbgsld5w1z7aca9f4fq")))
           ,(origin
              (method url-fetch)
              (uri (string-append "https://www.unicode.org/Public/"
                                  UNICODE_VERSION
                                  "/ucd/auxiliary/GraphemeBreakTest.txt"))
              (sha256
-              (base32 "1d9w6vdfxakjpp38qjvhgvbl2qx0zv5655ph54dhdb3hs9a96azf"))))
+              (base32 "1d9w6vdfxakjpp38qjvhgvbl2qx0zv5655ph54dhdb3hs9a96azf")))
           ;; For tests
-          ("perl" ,perl)
-          ("ruby" ,ruby)
-          ("julia" ,julia))))))
+          ,perl
+          ,ruby
+          ,julia)))))
