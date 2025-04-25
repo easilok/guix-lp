@@ -1,0 +1,26 @@
+diff --git a/data/Makefile b/data/Makefile
+index aa2d8a7..696dbd8 100644
+--- a/data/Makefile
++++ b/data/Makefile
+@@ -8,6 +8,7 @@ CURL=curl
+ PERL=perl
+ MAKE=make
+ JULIA=julia
++RUBY=ruby
+ CURLFLAGS = --retry 5 --location
+ 
+ .PHONY: clean
+@@ -51,10 +52,10 @@ emoji-data.txt:
+ 	$(CURL) $(CURLFLAGS) -o $@ $(URLCACHE)https://unicode.org/Public/$(UNICODE_VERSION)/ucd/emoji/emoji-data.txt
+ 
+ Uppercase.txt: DerivedCoreProperties.txt
+-	$(JULIA) -e 'print(match(r"# Derived Property: Uppercase.*?# Total code points:"s, read("DerivedCoreProperties.txt", String)).match)' > $@
++	$(RUBY) -e 'puts File.read("DerivedCoreProperties.txt")[/# Derived Property: Uppercase.*?# Total code points:/m]' > $@
+ 
+ Lowercase.txt: DerivedCoreProperties.txt
+-	$(JULIA) -e 'print(match(r"# Derived Property: Lowercase.*?# Total code points:"s, read("DerivedCoreProperties.txt", String)).match)' > $@
++	$(RUBY) -e 'puts File.read("DerivedCoreProperties.txt")[/# Derived Property: Lowercase.*?# Total code points:/m]' > $@
+ 
+ clean:
+ 	rm -f $(RAWDATA) NormalizationTest.txt GraphemeBreakTest.txt
+
