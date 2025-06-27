@@ -23,7 +23,9 @@
        (file-name (git-file-name name version))
        (sha256
         (base32 "1n1k67x39sk8xnza4w1xkbgbvgb1g7w2a7j2qrqzqaw1lyilqsy2"))
-       (patches `(".guix/modules/lp/packages/patches/utf8proc-2.10.0-remove-julia-dependency.patch"))))
+       (patches 
+	(parameterize ((%patch-path (map (lambda (directory) (string-append directory "/lp/packages/patches")) %load-path)))
+(search-patches "utf8proc-2.10.0-remove-julia-dependency.patch")))))
     (build-system gnu-build-system)
     (native-inputs
       (let ((UNICODE_VERSION "16.0.0"))
